@@ -1,12 +1,12 @@
-import java.util.HashSet;
+
 import java.util.Objects;
-import java.util.Set;
+
 
 public class Product {
-    private static String name;
-    private static double price;
-    private static double requiredAmount;
-    private static Set<Product> set;
+    private String name;
+    private double price;
+    private double requiredAmount;
+
     public Product(String name, double price, double requiredAmount) throws InvalidInputException, IllegalArgumentException {
         setName(name);
         setPrice(price);
@@ -45,22 +45,6 @@ public class Product {
             throw new InvalidInputException("Вес продукта указан неверно");
         }
         this.requiredAmount = requiredAmount;
-    }
-
-    public Set<Product> getSet() {
-        return set;
-    }
-
-    public void setSet(Set<Product> set) {
-        this.set = set;
-    }
-
-    public static void addProduct() throws IllegalArgumentException, InvalidInputException {
-        final Product product = new Product(name, price, requiredAmount);
-        if (set.contains(product)) {
-            throw new IllegalArgumentException("В сумке уже есть этот продукт");
-        }
-        set.add(product);
     }
 
     @Override

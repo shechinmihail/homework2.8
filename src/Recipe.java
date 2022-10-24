@@ -6,7 +6,6 @@ public class Recipe {
     private Set<Product> products;
     private double theTotalCostOfAllProducts;
     private String name;
-    private Set<Recipe> set;
 
     public Recipe(String name) {
         setName(name);
@@ -26,10 +25,6 @@ public class Recipe {
         return name;
     }
 
-    public Set<Recipe> getSet() {
-        return set;
-    }
-
     public void setName(String name) {
         if (name == null || name.isEmpty() || name.isBlank()) {
             this.name = "Рецепт указан неверно!";
@@ -44,14 +39,6 @@ public class Recipe {
         }
         products.add(product);
         theTotalCostOfAllProducts += product.getPrice();
-    }
-
-    public void add() throws IllegalArgumentException {
-        final Recipe recipe = new Recipe(name);
-        if (set.contains(recipe)) {
-            throw new IllegalArgumentException("Такой рецепт уже есть");
-        }
-        set.add(recipe);
     }
 
     @Override
