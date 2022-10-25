@@ -26,10 +26,10 @@ public class Main {
 //        System.out.println(Arrays.toString(set.toArray()));
 
         GroceryList groceryList = new GroceryList();
-        Product tomatoes = new Product ("Помидоры", 220.50, 5);
-        Product bananas = new Product ("Бананы", 79.99, 4);
-        Product watermelon = new Product ("Арбуз", 45.99, 1);
-        Product oranges = new Product ("Апельсины", 100.89, 1);
+        Product tomatoes = new Product("Помидоры", 220.50, 5);
+        Product bananas = new Product("Бананы", 79.99, 4);
+        Product watermelon = new Product("Арбуз", 45.99, 1);
+        Product oranges = new Product("Апельсины", 100.89, 1);
 
 
         groceryList.addProduct("Помидоры", 220.50, 5);
@@ -39,7 +39,6 @@ public class Main {
 
         System.out.println(groceryList);
         groceryList.removeProduct(bananas);
-
 
 
         Passport passport = new Passport(54549777, "Петров", "Петр", "Иванович", 1900);
@@ -58,6 +57,7 @@ public class Main {
         integers.removeIf(integer -> integer % 2 == 1);
         return integers;
     }
+
     // Homework 3
     public static Set<String> schoolTask() {
         Set<String> school = new HashSet<>();
@@ -73,7 +73,9 @@ public class Main {
         }
         return school;
     }
+
     private static Map<Integer, Passport> map = new HashMap<Integer, Passport>();
+
     public static void addPassport(Passport passport) {
         map.put(passport.getNumberPassport(), passport);
     }
@@ -95,8 +97,6 @@ public class Main {
      * чем в коллекциях LinkedList, HashSet. В результате поиска элементов и возврата элементов эта коллекция будет
      * затрачивать меньше времени.
      */
-
-
 
 
 }
