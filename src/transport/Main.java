@@ -1,8 +1,10 @@
 package transport;
 
+import java.sql.DriverAction;
 import java.util.ArrayDeque;
 import java.util.List;
 import java.util.Queue;
+import java.util.Set;
 
 public class Main {
 
@@ -30,8 +32,8 @@ public class Main {
 
         CheckingDriver checkingDriver = new CheckingDriver();
 
-        checkingDriver.addDriver(nikolay);
-        checkingDriver.addDriver(nikolay);
+        //checkingDriver.addDriver(nikolay);
+
 
         bmw.addDriver(ivan);
         bmw.addDriver(nikolay);
@@ -55,18 +57,19 @@ public class Main {
         iveco.addMechanic(zyzy);
         zil.addMechanic(dizel);
 
-        List<Driver<?>> drivers = bmw.getDrivers();
+        Set<Driver<?>> drivers = bmw.getDrivers();
         for (int i = 0; i < drivers.size(); i++) {
-            System.out.println(drivers.get(i));
+            System.out.println(drivers.toString());
         }
         var mechanics = bmw.getMechanics();
         for (int i = 0; i < mechanics.size(); i++) {
-            System.out.println(mechanics.get(i));
+            System.out.println(mechanics.toString());
         }
         var sponsors = bmw.getSponsors();
         for (int i = 0; i < sponsors.size(); i++) {
-            System.out.println(sponsors.get(i));
+            System.out.println(sponsors.toString());
         }
+
         ServiceStation serviceStation = new ServiceStation();
         serviceStation.addTransportOnServiceStation(kamaz);
         serviceStation.addTransportOnServiceStation(liaz);

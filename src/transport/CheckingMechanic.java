@@ -17,4 +17,11 @@ public class CheckingMechanic {
         }
         mechanics.add(mechanic);
     }
+
+    @Override
+    public String toString() {
+        return "CheckingMechanic{" +
+                "mechanics=" + mechanics +
+                '}';
+    }
 }

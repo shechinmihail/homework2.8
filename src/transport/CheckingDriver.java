@@ -16,4 +16,10 @@ public class CheckingDriver {
         drivers.add(driver);
     }
 
+    @Override
+    public String toString() {
+        return "CheckingDriver{" +
+                "drivers=" + drivers +
+                '}';
+    }
 }

@@ -17,4 +17,10 @@ public class СheckingTransport {
         transports.add(transport);
     }
 
+    @Override
+    public String toString() {
+        return "СheckingTransport{" +
+                "transports=" + transports +
+                '}';
+    }
 }

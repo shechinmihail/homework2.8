@@ -53,7 +53,7 @@ public class Recipe {
 
     @Override
     public int hashCode() {
-        return Objects.hash(products, theTotalCostOfAllProducts, name);
+        return Objects.hash(products, name);
     }
 
     @Override

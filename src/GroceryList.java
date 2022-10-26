@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class GroceryList {
@@ -20,6 +21,19 @@ public class GroceryList {
         final Product examination;
                 examination = set.stream().filter(product1 -> product.getName() == product1.getName()).findAny().orElse(null);
                 set.remove(examination);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GroceryList that = (GroceryList) o;
+        return Objects.equals(set, that.set);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(set);
     }
 
     @Override

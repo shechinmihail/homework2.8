@@ -16,4 +16,11 @@ public class CheckingSponsor {
         }
         sponsors.add(sponsor);
     }
+
+    @Override
+    public String toString() {
+        return "CheckingSponsor{" +
+                "sponsors=" + sponsors +
+                '}';
+    }
 }
