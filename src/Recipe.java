@@ -48,12 +48,12 @@ public class Recipe {
         Recipe recipe = (Recipe) o;
         if (Double.compare(recipe.theTotalCostOfAllProducts, theTotalCostOfAllProducts) != 0) return false;
         if (Objects.equals(name, recipe.name)) return false;
-        return Objects.equals(products, recipe.products);
+        return equals(recipe.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(products, name);
+        return Objects.hash(name);
     }
 
     @Override

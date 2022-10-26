@@ -17,10 +17,9 @@ public class GroceryList {
         }
         set.add(product);
     }
-    public void removeProduct(Product product){
-        final Product examination;
-                examination = set.stream().filter(product1 -> product.getName() == product1.getName()).findAny().orElse(null);
-                set.remove(examination);
+
+    public void removeProduct(Product product) {
+        set.remove(product);
     }
 
     @Override
