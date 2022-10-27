@@ -1,6 +1,7 @@
 package transport;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class CheckingSponsor {
@@ -15,6 +16,19 @@ public class CheckingSponsor {
             throw new RuntimeException("Давайте, без повторений!");
         }
         sponsors.add(sponsor);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CheckingSponsor that = (CheckingSponsor) o;
+        return Objects.equals(sponsors, that.sponsors);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(sponsors);
     }
 
     @Override

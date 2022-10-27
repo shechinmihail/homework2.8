@@ -32,8 +32,7 @@ public class Main {
 
         CheckingDriver checkingDriver = new CheckingDriver();
 
-        //checkingDriver.addDriver(nikolay);
-
+        checkingDriver.addDriver(nikolay);
 
         bmw.addDriver(ivan);
         bmw.addDriver(nikolay);

@@ -1,6 +1,7 @@
 package transport;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class CheckingDriver {
@@ -14,6 +15,19 @@ public class CheckingDriver {
             throw new RuntimeException("Давайте, без повторений!");
         }
         drivers.add(driver);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CheckingDriver that = (CheckingDriver) o;
+        return Objects.equals(drivers, that.drivers);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(drivers);
     }
 
     @Override
