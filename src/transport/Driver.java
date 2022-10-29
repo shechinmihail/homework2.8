@@ -1,5 +1,7 @@
 package transport;
 
+import java.util.Objects;
+
 public class Driver<T extends Transport & Competing> {
     private String fullName;
     private String driverLicense;
@@ -78,6 +80,19 @@ public class Driver<T extends Transport & Competing> {
 
     public void drive(T transport) {
         System.out.println("Водитель " + fullName + " управляет автомобилем " + transport.getBrand() + " и будет участвовать в заезде!");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Driver<?> driver = (Driver<?>) o;
+        return Objects.equals(fullName, driver.fullName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fullName);
     }
 
     @Override

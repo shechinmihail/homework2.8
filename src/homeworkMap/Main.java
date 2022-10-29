@@ -6,6 +6,8 @@ public class Main {
 
     public static void main(String[] args) {
 
+        //Task 1 homeWork1
+
         HashMap<String, String> contact = new HashMap<>();
 
         contact.put("Иванов Иван", "+7(912)9077333");
@@ -33,6 +35,8 @@ public class Main {
 
         System.out.println(contact.toString());
 
+        // Task 3 homeWork1
+
         Map<String, Integer> map = new HashMap<>();
         map.put("Фильмы", 10);
         map.put("Сериалы", 100);
@@ -47,18 +51,58 @@ public class Main {
 
         System.out.println(map.toString());
 
+        //Task 1 homeWork2
 
-        List<Integer> arrayRandom = new ArrayList<Integer>();
+        Map<String, List<Integer>> map1 = new HashMap<>();
+        List<Integer> arrayRandom = new ArrayList<>();
+        Integer[] intArreyValues;
         for (int i = 0; i < 3; i++) {
             double random = Math.random() * 1000;
             arrayRandom.add((int) random);
         }
 
-        Map<String, List<Integer>> map1 = new HashMap<>();
         map1.put("Test1", arrayRandom);
+        map1.put("Test2", arrayRandom);
+        map1.put("Test3", arrayRandom);
+        map1.put("Test4", arrayRandom);
+        map1.put("Test5", arrayRandom);
 
-        System.out.println(map1);
+        intArreyValues = convertIntegerList(arrayRandom);
+        System.out.println(Arrays.toString(intArreyValues));
 
+        //Task 2 homeWork2
+
+        Map<Integer, String> mapik = new LinkedHashMap<>();
+        mapik.put(1, "Лада");
+        mapik.put(2, "Тойота");
+        mapik.put(3, "Хонда");
+        mapik.put(4, "Киа");
+        mapik.put(5, "Мерседес-Бенс");
+        mapik.put(6, "Хавал");
+        mapik.put(7, "Мазда");
+        mapik.put(8, "Форд");
+        mapik.put(9, "Ламборгини");
+        mapik.put(10, "Феррари");
+
+        System.out.println(mapik.toString());
+
+
+    }
+//    public Map<String, Integer> getTransformMap() {
+//        var transformerMap = new HashMap<String, Integer>();
+//        for (Map.Entry<String, List<Integer>> entry : listMap.entrySet()) {
+//            transformerMap.put(entry.getKey(), entry.getValue().get(0) + entry.getValue().get(1) + entry.getValue().get(2));
+//        }
+//        return transformerMap;
+//    }
+
+    public static Integer[] convertIntegerList(List<Integer> arrayRandom) {
+        Integer[] result = new Integer[arrayRandom.size()];
+        Iterator iterator = arrayRandom.iterator();
+        for (int i = 0; i < result.length; i++) {
+            result[i] = (Integer) iterator.next();
+        }
+        return result;
     }
 
     public static void updateValue(Map<String, Integer> map, String key, Integer value) {

@@ -1,20 +1,12 @@
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class Recipe {
-    private Set<Product> products;
+    private Map<Product, Integer> products = new HashMap<>();
     private double theTotalCostOfAllProducts;
     private String name;
 
     public Recipe(String name) {
         setName(name);
-        theTotalCostOfAllProducts = 0;
-        products = new HashSet<>();
-    }
-
-    public Set<Product> getProducts() {
-        return products;
     }
 
     public double getTheTotalCostOfAllProducts() {
@@ -33,12 +25,14 @@ public class Recipe {
         }
     }
 
-    public void addProduct(Product product) throws IllegalArgumentException {
-        if (products.contains(product)) {
-            throw new IllegalArgumentException("В сумке уже есть этот продукт");
+    public void addProduct(Product product, Integer v) {
+        if (v <= 0) {
+            v = 1;
+            products.put(product,v);
+        } else {
+            products.put(product,v);
         }
-        products.add(product);
-        theTotalCostOfAllProducts += product.getPrice();
+        theTotalCostOfAllProducts += product.getPrice() * v;
     }
 
     @Override
@@ -58,9 +52,9 @@ public class Recipe {
 
     @Override
     public String toString() {
-        return "Recipe{" +
-                "products=" + products +
-                ", theTotalCostOfAllProducts=" + theTotalCostOfAllProducts +
-                ", name='" + name + '\'' + '}';
+        return "Рецепт{" +
+                " продукты " + products +
+                ", общая стоимость всех продуктов " + theTotalCostOfAllProducts +
+                ", наименование " + name + '\'' + '}';
     }
 }
