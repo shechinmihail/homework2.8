@@ -53,22 +53,51 @@ public class Main {
 
         //Task 1 homeWork2
 
-        Map<String, List<Integer>> map1 = new HashMap<>();
-        List<Integer> arrayRandom = new ArrayList<>();
-        Integer[] intArreyValues;
+        Random random = new Random();
+        List<Integer> list1 = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
-            double random = Math.random() * 1000;
-            arrayRandom.add((int) random);
+            list1.add(random.nextInt(1000));
+        }
+        List<Integer> list2 = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            list2.add(random.nextInt(1000));
+        }
+        List<Integer> list3 = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            list3.add(random.nextInt(1000));
+        }
+        List<Integer> list4 = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            list4.add(random.nextInt(1000));
+        }
+        List<Integer> list5 = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            list5.add(random.nextInt(1000));
         }
 
-        map1.put("Test1", arrayRandom);
-        map1.put("Test2", arrayRandom);
-        map1.put("Test3", arrayRandom);
-        map1.put("Test4", arrayRandom);
-        map1.put("Test5", arrayRandom);
+        Map<String, List<Integer>> map1 = new HashMap<>();
 
-        intArreyValues = convertIntegerList(arrayRandom);
-        System.out.println(Arrays.toString(intArreyValues));
+        map1.put("Test1", list1);
+        map1.put("Test2", list2);
+        map1.put("Test3", list3);
+        map1.put("Test4", list4);
+        map1.put("Test5", list5);
+
+        System.out.println(map1);
+
+        Map<String, Integer> map2 = new HashMap<>();
+
+        for (var keySet : map1.keySet()) {
+            Integer sum = 0;
+            List<Integer> convertList = map1.get(keySet);
+            for (Integer integerSum : convertList) {
+                sum += integerSum;
+            }
+            map2.put(keySet, sum);
+        }
+
+        System.out.println(map2);
+
 
         //Task 2 homeWork2
 
@@ -88,25 +117,10 @@ public class Main {
 
 
     }
-//    public Map<String, Integer> getTransformMap() {
-//        var transformerMap = new HashMap<String, Integer>();
-//        for (Map.Entry<String, List<Integer>> entry : listMap.entrySet()) {
-//            transformerMap.put(entry.getKey(), entry.getValue().get(0) + entry.getValue().get(1) + entry.getValue().get(2));
-//        }
-//        return transformerMap;
-//    }
 
-    public static Integer[] convertIntegerList(List<Integer> arrayRandom) {
-        Integer[] result = new Integer[arrayRandom.size()];
-        Iterator iterator = arrayRandom.iterator();
-        for (int i = 0; i < result.length; i++) {
-            result[i] = (Integer) iterator.next();
-        }
-        return result;
-    }
 
     public static void updateValue(Map<String, Integer> map, String key, Integer value) {
-        if (map.containsKey(key) && map.containsValue(value)) {
+        if (map.containsKey(key) && map.get(key).equals(value)) {
             throw new RuntimeException("Такой ключ и значение уже есть!");
         } else if (!map.containsKey(key)) {
             map.put(key, value);
